@@ -1,0 +1,11 @@
+create database teste_des_system
+Go
+Use testeorst_Games_Awards(
+Game_ID int,
+Game_Name varchar identity primary key(15),
+Year_Launcher int(4),
+Developer varchar,
+PRIMARY KEY (ID)
+);
+;
+Create table W
