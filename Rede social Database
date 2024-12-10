@@ -1,0 +1,17 @@
+Create database RedeSocial
+Go
+Use RedeSocial
+go
+create table CadrastoDoUsuario(
+Nome_do_Usuario varchar(50),
+Email_Usuario varchar(50),
+Num_telefone int,
+website varchar(50),
+Genero_Usuario varchar(50),
+foto_do_Usuario varchar(50)
+)
+
+
+
+
+
