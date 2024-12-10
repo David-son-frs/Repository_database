@@ -3,15 +3,27 @@ Go
 Use RedeSocial
 go
 create table CadrastoDoUsuario(
-Nome_do_Usuario varchar(50),
+Nome_do_Usuario varchar(50)not null PRIMARY KEY,
 Email_Usuario varchar(50),
-Num_telefone int,
+Num_telefone varchar(15),
 website varchar(50),
-Genero_Usuario varchar(50),
-foto_do_Usuario varchar(50)
-)
+Genero_Usuario varchar(50)
+);
 
+create table LoginDoUsuario(
+Nome_do_Usuario varchar(50) FOREIGN KEY REFERENCES CadastroDoUsuario(Nome_do_Usuario),
+Login_Do_Usuario varchar(50),
+Senha_do_Usuario varchar(50),
+);
 
+create table Usuario(
+Nome_Do_Usuario varchar(50) PRIMARY KEY
+Idade int,
+Endereço varchar(20)
 
+create table LinhaDoTempo(
+Comentarios varchar(50),
+Textos varchar(50),
 
+create table 
 
