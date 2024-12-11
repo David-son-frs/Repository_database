@@ -2,6 +2,7 @@ Create database RedeSocial
 Go
 Use RedeSocial
 go
+SELECT * FROM CadrastoDoUsuario
 create table CadrastoDoUsuario(
 Nome_do_Usuario varchar(50)not null PRIMARY KEY,
 Email_Usuario varchar(50),
@@ -11,19 +12,38 @@ Genero_Usuario varchar(50)
 );
 
 create table LoginDoUsuario(
-Nome_do_Usuario varchar(50) FOREIGN KEY REFERENCES CadastroDoUsuario(Nome_do_Usuario),
+Nome_do_Usuario varchar(50) 
 Login_Do_Usuario varchar(50),
-Senha_do_Usuario varchar(50),
+Senha_do_Usuario varchar(50)
 );
 
 create table Usuario(
-Nome_Do_Usuario varchar(50) PRIMARY KEY
+Nome_Do_Usuario varchar(50) 
 Idade int,
 Endereço varchar(20)
+);
 
 create table LinhaDoTempo(
 Comentarios varchar(50),
 Textos varchar(50),
+);
 
-create table 
+create table Seguidores(
+Nome_Do_Seguidor varchar(20)
+Foto_Do_Usuario varchar
+);
+
+create table SugestõesDeAmizade(
+Nome_Do_Usuario varchar(50) 
+);
+
+create table Comentarios(
+ID_do_comentario varchar(50),
+Data_do_Comentario date(10),
+Hora_do_Comentario date(10),
+Texto varchar(100)
+);
+
+
+
 
