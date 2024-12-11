@@ -3,7 +3,7 @@ Go
 Use RedeSocial
 go
 SELECT * FROM CadrastoDoUsuario
-create table CadrastoDoUsuario(
+create table CadastoDoUsuario(
 Nome_do_Usuario varchar(50)not null PRIMARY KEY,
 Email_Usuario varchar(50),
 Num_telefone varchar(15),
@@ -12,13 +12,13 @@ Genero_Usuario varchar(50)
 );
 
 create table LoginDoUsuario(
-Nome_do_Usuario varchar(50) 
+Nome_do_Usuario varchar(50),
 Login_Do_Usuario varchar(50),
 Senha_do_Usuario varchar(50)
 );
 
 create table Usuario(
-Nome_Do_Usuario varchar(50) 
+Nome_Do_Usuario varchar(50), 
 Idade int,
 Endereço varchar(20)
 );
@@ -30,7 +30,6 @@ Textos varchar(50),
 
 create table Seguidores(
 Nome_Do_Seguidor varchar(20)
-Foto_Do_Usuario varchar
 );
 
 create table SugestõesDeAmizade(
@@ -39,10 +38,11 @@ Nome_Do_Usuario varchar(50)
 
 create table Comentarios(
 ID_do_comentario varchar(50),
-Data_do_Comentario date(10),
-Hora_do_Comentario date(10),
+Data_do_Comentario varchar(10),
+Hora_do_Comentario varchar(10),
 Texto varchar(100)
 );
+
 
 
 
