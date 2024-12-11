@@ -1,0 +1,55 @@
+create database campeonatohandebol;
+go
+
+use campeonatohandebol;
+go
+
+create table estadios (
+    id int primary key identity,
+    nome varchar(100),
+    endereco varchar(255)
+);
+go
+
+create table equipes (
+    id int primary key identity,
+    nome varchar(100),
+    estadio_id int
+);
+go
+
+create table jogadores (
+    id int primary key identity,
+    nome varchar(100),
+    data_nascimento date,
+    genero varchar(10),
+    altura float,
+    equipe_id int
+);
+go
+
+create table partidas (
+    id int primary key identity,
+    data datetime,
+    mandante_id int,
+    visitante_id int,
+    estadio_id int,
+    mandante_placar int,
+    visitante_placar int
+);
+go
+
+create table campeonatos (
+    id int primary key identity,
+    nome varchar(100),
+    ano int
+);
+go
+
+create table campeonato_partidas (
+    campeonato_id int,
+    partida_id int,
+    primary key (campeonato_id, partida_id)
+);
+go
+
