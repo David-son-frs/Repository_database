@@ -13,7 +13,7 @@ create table artista(
 id_artistas int,
 nome_artista varchar(30),
 qtd_musicas int,
-idade int
+idade int,
 CONSTRAINT id_artistas FOREIGN KEY (id_artistas)
 REFERENCES cadasto_de_artistas(id_artistas)
 );
@@ -36,6 +36,7 @@ nome_artista varchar(50),
 nome_musica varchar(20),
 ano_lancamento int,
 horario_lancamento date,
-CONSTRAINT fk_id_artista FOREIGN KEY (id_artista)
+CONSTRAINT fk_musicas_artista FOREIGN KEY (id_artista)
 REFERENCES cadasto_de_artistas(id_artistas)
 );
+
