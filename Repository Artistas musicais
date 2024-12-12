@@ -1,7 +1,6 @@
 create database artistas;
-
+go
 Use artistas;
-
 create table cadasto_de_artistas(
 id_artistas int not null identity primary key,
 nome_artista varchar(30),
@@ -9,24 +8,34 @@ qtd_musicas int,
 idade int
 );
 
+use artistas
 create table artista(
 id_artistas int,
 nome_artista varchar(30),
-qtd_musicas int(50),
+qtd_musicas int,
 idade int
+CONSTRAINT id_artistas FOREIGN KEY (id_artistas)
+REFERENCES cadasto_de_artistas(id_artistas)
 );
 
+use artistas
 create table album(
 nome_album varchar(50),
 qtd_musicas_album varchar(50),
 genero_musical varchar(50),
-compositores_participantes(50),
+compositores_participantes varchar(50),
+id_artista int, 
+CONSTRAINT fk_album_artista FOREIGN KEY (id_artista)
+REFERENCES cadasto_de_artistas(id_artistas)
 );
 
+use artistas
 create table musicas(
+id_artista int,
 nome_artista varchar(50),
 nome_musica varchar(20),
-ano_lançamento int,
-horario_lançamento date,
+ano_lancamento int,
+horario_lancamento date,
+CONSTRAINT fk_id_artista FOREIGN KEY (id_artista)
+REFERENCES cadasto_de_artistas(id_artistas)
 );
-
