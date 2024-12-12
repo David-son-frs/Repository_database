@@ -1,0 +1,32 @@
+create database artistas;
+
+Use artistas;
+
+create table cadasto_de_artistas(
+id_artistas int not null identity primary key,
+nome_artista varchar(30),
+qtd_musicas int,
+idade int
+);
+
+create table artista(
+id_artistas int,
+nome_artista varchar(30),
+qtd_musicas int(50),
+idade int
+);
+
+create table album(
+nome_album varchar(50),
+qtd_musicas_album varchar(50),
+genero_musical varchar(50),
+compositores_participantes(50),
+);
+
+create table musicas(
+nome_artista varchar(50),
+nome_musica varchar(20),
+ano_lançamento int,
+horario_lançamento date,
+);
+
