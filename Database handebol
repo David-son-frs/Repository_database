@@ -3,43 +3,54 @@ go
 
 use campeonatohandebol;
 
+Criação das Tabelas
+
 create table estadios (
-    id int primary key identity,
-    nome varchar(100),
-    endereco varchar(255)
+id int primary key identity,
+nome varchar(100) not null,
+endereco varchar(255) not null
 );
+
 create table equipes (
-    id int primary key identity,
-    nome varchar(100),
-    estadio_id int
+id int primary key identity,
+nome varchar(100) not null,
+estadio_id int,
+constraint fk_equipes_estadios foreign key (estadio_id) references estadios(id)
 );
+
 create table jogadores (
-    id int primary key identity,
-    nome varchar(100),
-    data_nascimento date,
-    genero varchar(10),
-    altura float,
-    equipe_id int
+id int primary key identity,
+nome varchar(100) not null,
+data_nascimento date,
+genero varchar(10),
+altura float,
+equipe_id int,
+constraint fk_jogadores_equipes foreign key (equipe_id) references equipes(id)
 );
+
 create table partidas (
-    id int primary key identity,
-    data datetime,
-    mandante_id int,
-    visitante_id int,
-    estadio_id int,
-    mandante_placar int,
-    visitante_placar int
+id int primary key identity,
+data datetime,
+mandante_id int,
+visitante_id int,
+estadio_id int,
+mandante_placar int,
+visitante_placar int,
+constraint fk_partidas_mandante_equipes foreign key (mandante_id) references equipes(id),
+constraint fk_partidas_visitante_equipes foreign key (visitante_id) references equipes(id),
+constraint fk_partidas_estadios foreign key (estadio_id) references estadios(id)
 );
 
 create table campeonatos (
-    id int primary key identity,
-    nome varchar(100),
-    ano int
+id int primary key identity,
+nome varchar(100) not null,
+ano int
 );
+
 create table campeonato_partidas (
-    campeonato_id int,
-    partida_id int,
-    primary key (campeonato_id, partida_id)
+campeonato_id int,
+partida_id int,
+primary key (campeonato_id, partida_id),
+constraint fk_campeonato_partidas_campeonatos foreign key (campeonato_id) references campeonatos(id),
+constraint fk_campeonato_partidas_partidas foreign key (partida_id) references partidas(id)
 );
-
-
