@@ -1,49 +1,51 @@
-Create database RedeSocial
-Go
-Use RedeSocial
+
+create database rede_social;
 go
-SELECT * FROM CadrastoDoUsuario
-create table CadastoDoUsuario(
-Nome_do_Usuario varchar(50)not null PRIMARY KEY,
-Email_Usuario varchar(50),
-Num_telefone varchar(15),
-website varchar(50),
-Genero_Usuario varchar(50)
+
+use rede_social;
+create table usuarios (
+id_usuario int primary key identity(1,1),
+nome varchar(50),
+email varchar(100),
+data_nascimento date,
+website varchar(100),
+genero varchar(10),
+telefone varchar(20),
+foto_perfil varchar(200)
 );
 
-create table LoginDoUsuario(
-Nome_do_Usuario varchar(50),
-Login_Do_Usuario varchar(50),
-Senha_do_Usuario varchar(50)
+create table seguidores (
+id_usuario int,
+id_seguindo int,
+constraint fk_seguidores_usuario foreign key (id_usuario) references usuarios(id_usuario),
+constraint fk_seguidores_seguindo foreign key (id_seguindo) references usuarios(id_usuario)
 );
 
-create table Usuario(
-Nome_Do_Usuario varchar(50), 
-Idade int,
-Endereço varchar(20)
+create table postagens (
+id_postagem int primary key identity(1,1),
+id_usuario int,
+texto varchar(500),
+data_postagem datetime,
+constraint fk_postagens_usuario foreign key (id_usuario) references usuarios(id_usuario)
 );
 
-create table LinhaDoTempo(
-Comentarios varchar(50),
-Textos varchar(50),
+create table fotos_postagens (
+id_foto int primary key identity(1,1),
+id_postagem int,
+uri_foto varchar(200),
+constraint fk_fotos_postagens_postagem foreign key (id_postagem) references postagens(id_postagem)
 );
 
-create table Seguidores(
-Nome_Do_Seguidor varchar(20)
+create table albuns (
+id_album int primary key identity(1,1),
+titulo varchar(50),
+id_usuario int,
+constraint fk_albuns_usuario foreign key (id_usuario) references usuarios(id_usuario)
 );
 
-create table SugestõesDeAmizade(
-Nome_Do_Usuario varchar(50) 
+create table fotos_albuns (
+id_foto int primary key identity(1,1),
+id_album int,
+uri_foto varchar(200),
+constraint fk_fotos_albuns_album foreign key (id_album) references albuns(id_album)
 );
-
-create table Comentarios(
-ID_do_comentario varchar(50),
-Data_do_Comentario varchar(10),
-Hora_do_Comentario varchar(10),
-Texto varchar(100)
-);
-
-
-
-
-
